@@ -1,0 +1,27 @@
+{
+   "appId": "urn:d2l:fra:id:test-app",
+   "description": "test-config",
+   "version": "1.0.0",
+   "config": {
+       "frauAppConfigBuilder": {
+           "appFile": "index.html",
+           "dist": "./test",
+           "envVar": "TRAVIS",
+           "loader": "iframe"
+       },
+       "frauLocalAppResolver": {
+           "appClass": "urn:d2l:fra:class:test-app"
+       },
+       "frauPublisher": {
+           "files": "./dist/**",
+           "moduleType": "app",
+           "targetDirectory": "plugin-tester",
+           "creds": {
+               "key": "key",
+               "secret": "secret"
+           },
+           "devTag": "TRAVIS_COMMIT",
+           "version": "TRAVIS_TAG"
+       }
+   }
+}
