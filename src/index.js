@@ -71,6 +71,13 @@ FrauAppConfigPlugin.prototype.apply = function(compiler) {
         let target;
 
         if ( envVar && process.env[envVar] ) {
+
+            const publisherOptions = {
+                ...frauPublisher,
+                version: process.env[frauPublisher.version],
+                devTag: process.env[frauPublisher.devTag]
+            };
+
             target = FrauPublisher
                 .app(frauPublisher)
                 .getLocation() + appFile;
