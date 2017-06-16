@@ -2,8 +2,8 @@ import Builder from 'frau-appconfig-builder';
 import FrauPublisher from 'gulp-frau-publisher';
 import FrauLocalResolver from 'frau-local-appresolver';
 
-function getVersion( version ) {
-    const _version = process.env[frauPublisher.version];
+function getVersion(version) {
+    const _version = process.env[version];
 
     if ( !_version && !version ) {
         return null;
