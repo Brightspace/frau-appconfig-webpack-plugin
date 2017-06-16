@@ -1,5 +1,6 @@
 src
-tests
+test
 coverage
 .*
 yarn.lock
+node_modules
