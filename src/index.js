@@ -83,6 +83,8 @@ FrauAppConfigPlugin.prototype.apply = function(compiler) {
 
             const publisherOptions = {
                 ...frauPublisher,
+                key: frauPublisher.creds.key,
+                secret: frauPublisher.creds.secret || process.env[frauPublisher.creds.secretVar],
                 version: frauPublisher.version || process.env[frauPublisher.versionVar],
                 devTag: frauPublisher.devTag || process.env[frauPublisher.devTagVar]
             };

@@ -59,7 +59,7 @@ There are two ways to specifiy options:
         targetDirectory: 'sample',
         creds: {
             key: 'key',
-            secret: 'S3_SECRET'
+            secretVar: 'S3_SECRET', or secret: '{SECRET}'
         },
         devTagVar: 'TRAVIS_COMMIT', or devTag: 'Custom dev Tag'
         versionVar: 'TRAVIS_TAG' or version: 'SEMVAR VERSION: Ex. 1.0.0'
@@ -96,10 +96,10 @@ There are two ways to specifiy options:
             "targetDirectory": "sample",
             "creds": {
                 "key": "key",
-                "secret": "S3_SECRET"
+                "secretVar": "S3_SECRET", secret: '{SECRET}'
             },
-            "devTag": "TRAVIS_COMMIT",
-            "version": "TRAVIS_TAG"
+            "devTagVar": "TRAVIS_COMMIT",
+            "versionVar": "TRAVIS_TAG"
         }
     }
 }
