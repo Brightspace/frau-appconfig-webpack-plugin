@@ -9,8 +9,7 @@
         "remove-temp": "rimraf ./test/temp",
         "report:html": "nyc report --reporter=html",
         "test:plugin": "nyc ava ./test/*-tests.js -s",
-        "test": "yarn run build && yarn run test:plugin && yarn run remove-temp",
-        "unpublish": "npm unpublish frau-appconfig-plugin --force"
+        "test": "yarn run build && yarn run test:plugin && yarn run remove-temp"
     },
     "repository": {
         "type": "git",
