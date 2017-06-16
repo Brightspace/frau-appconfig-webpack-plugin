@@ -71,11 +71,8 @@ FrauAppConfigPlugin.prototype.apply = function(compiler) {
         let target;
 
         if ( envVar && process.env[envVar] ) {
-
-            const publisherOptions = FrauPublisher.optionsProvider.getOptions(frauPublisher);
-
             target = FrauPublisher
-                .app(publisherOptions)
+                .app(frauPublisher)
                 .getLocation() + appFile;
         } else {
 
@@ -86,7 +83,7 @@ FrauAppConfigPlugin.prototype.apply = function(compiler) {
                 .getUrl() + appFile;
         }
 
-        const appConfig = _builder.build(target, options );
+        const appConfig = _builder.build(target, options);
         const appConfigString = JSON.stringify(appConfig);
 
         compilation.assets['appconfig.json'] = {
