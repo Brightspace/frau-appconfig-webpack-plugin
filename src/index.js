@@ -1,16 +1,8 @@
 import Builder from 'frau-appconfig-builder';
-import FrauPublisher from 'gulp-frau-publisher';
+import FrauPublisher from 'frau-publisher';
 import FrauLocalResolver from 'frau-local-appresolver';
 
-function getVersion(version) {
-    const _version = process.env[version];
-
-    if ( !_version && !version ) {
-        return null;
-    }
-
-    return _version || version;
-}
+import Errors from './errors';
 
 function FrauAppConfigPlugin(options) {
 
@@ -46,6 +38,8 @@ function FrauAppConfigPlugin(options) {
 
 FrauAppConfigPlugin.prototype.apply = function(compiler) {
 
+    let errors = [];
+
     const { frauLocalAppResolver, frauAppConfigBuilder, frauPublisher, options } = this.config;
 
     const appClass = frauLocalAppResolver ? frauLocalAppResolver.appClass : null;
@@ -53,19 +47,16 @@ FrauAppConfigPlugin.prototype.apply = function(compiler) {
     const envVar = frauAppConfigBuilder ? frauAppConfigBuilder.envVar : null;
     const loader = frauAppConfigBuilder ? frauAppConfigBuilder.loader : null;
 
-    if (!appClass) {
-        console.error( 'appClass must defined in frauLocalAppResolver' );
-        return;
+    if (!options.id || !options.version || !options.description) {
+        errors.push(Errors.missingIdorVersionOrDescription);
     }
 
     if (!appFile) {
-        console.error( 'appFile must defined in frauAppConfigBuilder' );
-        return;
+        errors.push(Errors.missingAppFile);
     }
 
-    if (!options.id || !options.version || !options.description) {
-        console.error( 'id, version, or description not specified' );
-        return;
+    if (!appClass) {
+        errors.push(Errors.missingAppClass);
     }
 
     let _builder = Builder.umd;
@@ -78,18 +69,26 @@ FrauAppConfigPlugin.prototype.apply = function(compiler) {
 
     compiler.plugin('emit', function(compilation, cb) {
 
+        if ( errors.length > 0 ) {
+            errors.forEach( err => {
+                compilation.errors.push(err);
+            });
+            cb();
+            return;
+        }
+
         let target;
 
         if ( envVar && process.env[envVar] ) {
 
             const publisherOptions = {
                 ...frauPublisher,
-                version: getVersion(frauPublisher.version),
-                devTag: process.env[frauPublisher.devTag] || frauPublisher.devTag
+                version: frauPublisher.version || process.env[frauPublisher.versionVar],
+                devTag: frauPublisher.devTag || process.env[frauPublisher.devTagVar]
             };
 
             target = FrauPublisher
-                .app(frauPublisher)
+                .app(publisherOptions)
                 .getLocation() + appFile;
         } else {
 

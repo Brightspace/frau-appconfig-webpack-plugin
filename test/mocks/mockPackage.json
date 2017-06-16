@@ -20,8 +20,8 @@
                "key": "key",
                "secret": "secret"
            },
-           "devTag": "TRAVIS_COMMIT",
-           "version": "TRAVIS_TAG"
+           "devTagVar": "TRAVIS_COMMIT",
+           "versionVar": "TRAVIS_TAG"
        }
    }
 }

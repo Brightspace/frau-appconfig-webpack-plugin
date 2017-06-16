@@ -1895,7 +1895,7 @@ frau-local-appresolver@^0.3.0:
     superagent-d2l-cors-proxy "^0.2.0"
     yargs "^3.29.0"
 
-frau-publisher@^2.5.1:
+frau-publisher@^2.5.1, frau-publisher@^2.6.2:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/frau-publisher/-/frau-publisher-2.6.2.tgz#9084d07f83114f98c6ad8402d306c0f9636c5be9"
   dependencies:
@@ -1924,10 +1924,6 @@ fs-readdir-recursive@^1.0.0:
 fs.realpath@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
-
-fs@^0.0.1-security:
-  version "0.0.1-security"
-  resolved "https://registry.yarnpkg.com/fs/-/fs-0.0.1-security.tgz#8a7bd37186b6dddf3813f23858b57ecaaf5e41d4"
 
 fsevents@^1.0.0:
   version "1.1.1"
@@ -2167,33 +2163,9 @@ graceful-fs@~1.2.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/graceful-readlink/-/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
 
-gulp-frau-publisher@^2.5.0:
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/gulp-frau-publisher/-/gulp-frau-publisher-2.5.0.tgz#0fb81851780f12d28b0a5ed66603c44789ed3893"
-  dependencies:
-    chalk "^1.1.0"
-    event-stream "^3.1.7"
-    gulp-s3 "^0.3.0"
-    gulp-util "^3.0.1"
-    knox "^0.9.1"
-    q "^1.4.1"
-    semver "^5.0.1"
-    vinyl-fs "^1.0.0"
-    yargs "^3.10.0"
-
 gulp-s3@^0.11.0:
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/gulp-s3/-/gulp-s3-0.11.0.tgz#9e302b5645206e217a525d20befa1ed293442492"
-  dependencies:
-    async ""
-    event-stream "*"
-    gulp-util "~2.2.6"
-    knox ""
-    mime "~1.2.11"
-
-gulp-s3@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/gulp-s3/-/gulp-s3-0.3.0.tgz#aaa60e41624d44711a69b60e2046c1b1cae8ae41"
   dependencies:
     async ""
     event-stream "*"

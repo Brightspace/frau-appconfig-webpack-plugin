@@ -8,14 +8,14 @@
     "build": "babel src/ --out-dir lib/",
     "remove-temp": "rimraf ./test/temp",
     "report:html": "nyc report --reporter=html",
-    "test:plugin": "nyc ava ./test/appConfigPluginTests.js",
+    "test:plugin": "nyc ava ./test/*-tests.js -s",
     "test": "yarn run build && yarn run test:plugin && yarn run remove-temp"
   },
   "license": "MIT",
   "dependencies": {
     "frau-appconfig-builder": "^0.1.0",
     "frau-local-appresolver": "^0.3.0",
-    "gulp-frau-publisher": "^2.5.0"
+    "frau-publisher": "^2.6.2"
   },
   "devDependencies": {
     "ava": "^0.19.1",
@@ -23,7 +23,6 @@
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-es2015": "^6.24.1",
     "coveralls": "^2.13.1",
-    "fs": "^0.0.1-security",
     "nyc": "^11.0.2",
     "rimraf": "^2.6.1",
     "webpack": "^2.6.1"
