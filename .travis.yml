@@ -4,6 +4,7 @@ node_js:
 sudo: false
 after_success:
 - "./node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls"
+- "npm run unpublish"
 deploy:
   provider: npm
   email: d2ltravisdeploy@d2l.com
