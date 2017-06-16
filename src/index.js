@@ -74,8 +74,8 @@ FrauAppConfigPlugin.prototype.apply = function(compiler) {
 
             const publisherOptions = {
                 ...frauPublisher,
-                version: process.env[frauPublisher.version],
-                devTag: process.env[frauPublisher.devTag]
+                version: process.env[frauPublisher.version] || frauPublisher.version,
+                devTag: process.env[frauPublisher.devTag] || frauPublisher.devTag
             };
 
             target = FrauPublisher
