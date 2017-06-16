@@ -1,6 +1,6 @@
 {
     "name": "frau-appconfig-webpack-plugin",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Webpack plugin for frau-appconfig-builder",
     "main": "lib/index.js",
     "scripts": {
