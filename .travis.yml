@@ -3,4 +3,12 @@ node_js:
 - stable
 sudo: false
 after_success:
-    - './node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls'
+- "./node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls"
+deploy:
+  provider: npm
+  email: d2ltravisdeploy@d2l.com
+  api_key:
+      secure: OI3FAAVEp8DY4uMLzom6h04qHi7eFwwfk5LFqAMndEym0E+wkJ2moJpUDbhp73725jy+Aehao0ouYBGS4MfkacAThUhxu6toUReRRleq4067jPmmDKVQJl9TnC2lvClkapAfCouMXZM3TaYikVH49Dk5j77SYArOlPfoX9k5i0uB9X9J5qo53NJGoDVz4XuNi265ldkRyk/FTc+j59+aKEKWk4JoasgqwIjg9N+qenOHiriT1rY7DVPhegUnxfBQ9JSsQdnjo52IRhly6sFjoM3UtxSMVtzklwUcb3+krUZWHCy5uwy/W0PgsJtE7G/ktf6aY1QQA3NF1hDHgWi2bEBtxgAAscpn9i02s2SEhC6JE2uT03mMp4PLSieDjRJ/v1ynPL59IrAV62LBLpMbDWbK40m2djQGhDgZUDWt5mMuwqv61VTUvbrX2QePmcmwGK5QQkrWtZsesRUFX+v1pJc8Luz5N4mwkHwemRULmJeulnT6wwn7zNbR6FaJKkkv7GoAyb1qc+sjmcPylaio3lpN62sEz7I0SzF/ayjdVpAhTZyBIV+8KjrA0T49lMPNxIVmnaBMf/yWrOXwMdRV0g3jPYk+vvce4HSTORGOOsrdO6FAEmtdIFRiT+fd5DkbN5QpyiQeIEu6CNVQvAXBYPMg49wl9AL3pngqoVseJ7M=
+  on:
+    tags: true
+    branch: master

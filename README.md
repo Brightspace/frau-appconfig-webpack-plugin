@@ -11,10 +11,10 @@ Webpack plugin that builds app config using frau-appconfig-builder
 Install from npm:
 
 ```shell
-npm install frau-appconfig-webpack-plugin 
+npm install frau-appconfig-webpack-plugin
 
                 or
-                
+
 yarn install frau-appconfig-webpack-plugin
 ```
 
@@ -27,9 +27,9 @@ import FrauAppConfigPlugin from 'frau-appconfig-webpack-plugin';
 const config =  {
   ...,
   plugins: [
-      
+
       new FrauAppConfigPlugin(options)
-    
+
   ]
 ```
 
@@ -41,7 +41,7 @@ There are two ways to specifiy options:
 
 ```js
 {
-    appId: 'urn:d2l:fra:id:test-app',
+    appId: 'urn:d2l:fra:id:sample',
     description: 'test-config',
     version: '1.0.0',
     frauAppConfigBuilder: {
@@ -51,15 +51,15 @@ There are two ways to specifiy options:
         loader: 'iframe'
     } ,
     frauLocalAppResolver: {
-         appClass: 'urn:d2l:fra:class:test-app'
+         appClass: 'urn:d2l:fra:class:sample'
     },
     frauPublisher: {
         files: './dist/**',
         moduleType: 'app',
-        targetDirectory: 'plugin-tester',
+        targetDirectory: 'sample',
         creds: {
             key: 'key',
-            secret: 'secret'
+            secret: 'S3_SECRET'
         },
         devTagVar: 'TRAVIS_COMMIT', or devTag: 'Custom dev Tag'
         versionVar: 'TRAVIS_TAG' or version: 'SEMVAR VERSION: Ex. 1.0.0'
@@ -77,7 +77,7 @@ There are two ways to specifiy options:
 ```json
 {
     "name": "sample-package-json",
-    "appId": "urn:d2l:fra:id:one-drive-picker",
+    "appId": "urn:d2l:fra:id:sample",
     "version": "0.0.1",
     "description": "Sample package json",
     "config": {
@@ -88,14 +88,14 @@ There are two ways to specifiy options:
             "loader": "iframe"
         },
         "frauLocalAppResolver": {
-            "appClass": "urn:d2l:fra:class:one-drive-picker"
+            "appClass": "urn:d2l:fra:class:sample"
         },
         "frauPublisher": {
             "files": "./dist/**",
             "moduleType": "app",
-            "targetDirectory": "one-drive-picker",
+            "targetDirectory": "sample",
             "creds": {
-                "key": "AKIAIHAOLXU3VOEGR6HA",
+                "key": "key",
                 "secret": "S3_SECRET"
             },
             "devTag": "TRAVIS_COMMIT",
