@@ -2,6 +2,16 @@ import Builder from 'frau-appconfig-builder';
 import FrauPublisher from 'gulp-frau-publisher';
 import FrauLocalResolver from 'frau-local-appresolver';
 
+function getVersion( version ) {
+    const _version = process.env[frauPublisher.version];
+
+    if ( !_version && !version ) {
+        return null;
+    }
+
+    return _version || version;
+}
+
 function FrauAppConfigPlugin(options) {
 
     if ( options.packageFile ) {
@@ -72,11 +82,9 @@ FrauAppConfigPlugin.prototype.apply = function(compiler) {
 
         if ( envVar && process.env[envVar] ) {
 
-            console.log( process.env );
-
             const publisherOptions = {
                 ...frauPublisher,
-                version: process.env[frauPublisher.version] || frauPublisher.version,
+                version: getVersion(frauPublisher.version),
                 devTag: process.env[frauPublisher.devTag] || frauPublisher.devTag
             };
 
