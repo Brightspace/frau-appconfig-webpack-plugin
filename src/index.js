@@ -72,6 +72,8 @@ FrauAppConfigPlugin.prototype.apply = function(compiler) {
 
         if ( envVar && process.env[envVar] ) {
 
+            console.log( process.env );
+
             const publisherOptions = {
                 ...frauPublisher,
                 version: process.env[frauPublisher.version] || frauPublisher.version,
